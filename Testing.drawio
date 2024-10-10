@@ -1,33 +1,123 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36" version="24.7.17">
   <diagram name="Sida-1" id="GuQe-Khkk47jGNaTGUm2">
-    <mxGraphModel dx="2074" dy="1184" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2150" dy="3159" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="wgi8--ShAoJELwSdXpG3-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="wgi8--ShAoJELwSdXpG3-1">
+        <mxCell id="wgi8--ShAoJELwSdXpG3-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="wgi8--ShAoJELwSdXpG3-1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="414" y="230" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="wgi8--ShAoJELwSdXpG3-1" value="Start&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="354" y="90" width="120" height="80" as="geometry" />
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="wgi8--ShAoJELwSdXpG3-1" target="IrVfm-y8yWF6sAL1lNhP-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="130" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="wgi8--ShAoJELwSdXpG3-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="wgi8--ShAoJELwSdXpG3-3" target="wgi8--ShAoJELwSdXpG3-5">
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="wgi8--ShAoJELwSdXpG3-1" target="IrVfm-y8yWF6sAL1lNhP-3">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="wgi8--ShAoJELwSdXpG3-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="wgi8--ShAoJELwSdXpG3-3" target="wgi8--ShAoJELwSdXpG3-4">
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="wgi8--ShAoJELwSdXpG3-1" target="IrVfm-y8yWF6sAL1lNhP-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wgi8--ShAoJELwSdXpG3-1" value="&lt;div&gt;Skapa klasser&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="354" y="-40" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="wgi8--ShAoJELwSdXpG3-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="wgi8--ShAoJELwSdXpG3-3" target="wgi8--ShAoJELwSdXpG3-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wgi8--ShAoJELwSdXpG3-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="wgi8--ShAoJELwSdXpG3-3" target="wgi8--ShAoJELwSdXpG3-4" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="290" y="270" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="wgi8--ShAoJELwSdXpG3-3" value="Testing&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="wgi8--ShAoJELwSdXpG3-3" value="DragonSlayer" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="354" y="230" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="wgi8--ShAoJELwSdXpG3-4" value="testing 2&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="wgi8--ShAoJELwSdXpG3-4" value="testing 2&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="160" y="230" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="wgi8--ShAoJELwSdXpG3-5" value="testing 3" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="wgi8--ShAoJELwSdXpG3-5" value="testing 3" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="550" y="230" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IrVfm-y8yWF6sAL1lNhP-2" target="IrVfm-y8yWF6sAL1lNhP-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IrVfm-y8yWF6sAL1lNhP-2" target="IrVfm-y8yWF6sAL1lNhP-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IrVfm-y8yWF6sAL1lNhP-2" target="IrVfm-y8yWF6sAL1lNhP-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-2" value="Hero klass" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="-30" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="IrVfm-y8yWF6sAL1lNhP-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="560" y="-200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IrVfm-y8yWF6sAL1lNhP-3" target="IrVfm-y8yWF6sAL1lNhP-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-3" value="Drak-klass" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="354" y="-230" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-7" value="Skapa olika sorters drakar med olika special attacker osv." style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="-240" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IrVfm-y8yWF6sAL1lNhP-9" target="IrVfm-y8yWF6sAL1lNhP-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IrVfm-y8yWF6sAL1lNhP-9" target="IrVfm-y8yWF6sAL1lNhP-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IrVfm-y8yWF6sAL1lNhP-9" target="IrVfm-y8yWF6sAL1lNhP-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-9" value="Specs" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="354" y="-420" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-11" value="Hur mkt liv?" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="554" y="-420" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-13" value="Hur mkt skada gör draken?" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="354" y="-560" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-15" value="Vilken lvl är draken?" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="154" y="-420" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="IrVfm-y8yWF6sAL1lNhP-19">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="110" y="-80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="IrVfm-y8yWF6sAL1lNhP-19" target="IrVfm-y8yWF6sAL1lNhP-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IrVfm-y8yWF6sAL1lNhP-19" target="IrVfm-y8yWF6sAL1lNhP-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-19" value="Bossfight" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="-30" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-22" value="&#xa;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;&quot;&gt;Hur mkt liv?&lt;/span&gt;&#xa;&#xa;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="-140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-23" value="Hur mkt skada gör Bossen?" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-130" y="-30" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-25" value="Vilken lvl är bossen?" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="60" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-27" value="&#xa;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;&quot;&gt;Hur mkt liv?&lt;/span&gt;&#xa;&#xa;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="-120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-28" value="Hur mkt skada gör Bossen?" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="-30" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-29" value="Vilken lvl är bossen?" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="70" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
