@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 namespace DragonslayerUppgiftLudvig;
 internal class Boss
 {
-    public int Health { get; set; }
-    public int Streagth { get; set; }
-    public int Level { get; set; }
+    int Health { get; set; }
+    int Strength { get; set; }
+    int Level { get; set; }
+    int MyProperty { get; set; }
 
 
 

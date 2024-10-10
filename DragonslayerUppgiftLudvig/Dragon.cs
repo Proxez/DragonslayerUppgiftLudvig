@@ -7,11 +7,32 @@ using System.Threading.Tasks;
 namespace DragonslayerUppgiftLudvig;
 internal class Dragon
 {
-    public int Health { get; set; }
-    public int Streagth { get; set; }
-    public int Level { get; set; }
+    int Health { get; set; }
+    int Strength { get; set; }
+    int SpellPower { get; set; }
+    int Level { get; set; }
+    int Armor { get; set; }
+
+    void FireDragon()
+    {
+
+    }
+    void VoidDragon()
+    {
+
+    }
+    void FrostDragon()
+    {
+
+    }
 
 
-
-
+    void BasicDragonStats()
+    {    
+        Health = 150;
+        Strength = 10;
+        SpellPower = 10;
+        Level = 1;
+        Armor = 10;
+    }
 }
