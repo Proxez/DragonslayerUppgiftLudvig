@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36" version="24.7.17">
   <diagram name="Sida-1" id="GuQe-Khkk47jGNaTGUm2">
-    <mxGraphModel dx="1461" dy="2117" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1487" dy="2157" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -37,8 +37,17 @@
         <mxCell id="wgi8--ShAoJELwSdXpG3-4" value="testing 2&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="160" y="230" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="wgi8--ShAoJELwSdXpG3-5" value="testing 3" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="550" y="230" width="120" height="80" as="geometry" />
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="wgi8--ShAoJELwSdXpG3-5" target="IrVfm-y8yWF6sAL1lNhP-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="wgi8--ShAoJELwSdXpG3-5" target="IrVfm-y8yWF6sAL1lNhP-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-38" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="wgi8--ShAoJELwSdXpG3-5" target="IrVfm-y8yWF6sAL1lNhP-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wgi8--ShAoJELwSdXpG3-5" value="Attacksystemet" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1200" y="230" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="IrVfm-y8yWF6sAL1lNhP-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="IrVfm-y8yWF6sAL1lNhP-2" target="IrVfm-y8yWF6sAL1lNhP-28">
           <mxGeometry relative="1" as="geometry" />
@@ -118,6 +127,18 @@
         </mxCell>
         <mxCell id="IrVfm-y8yWF6sAL1lNhP-29" value="Vilken lvl är bossen?" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="630" y="70" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-33" value="Hit ratio på &quot;mobs&quot; som är högre lvl än hero" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-35" value="Ska ha random funktion på &quot;dragon&quot; eller bossens attacker" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="240" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-37" value="" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="400" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IrVfm-y8yWF6sAL1lNhP-39" value="Vill bygga utspelet till detta senare när jag fått allt att fungera" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="840" y="240" width="230" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
