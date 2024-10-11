@@ -8,40 +8,47 @@ namespace DragonslayerUppgiftLudvig;
 internal class Hero
 {
 
-    public static string PlayerName { get; set; }    
+    //static string _playerName { get; set; }    
     public static int Health { get; set; }
     public static int Strength { get; set; }
     public static int Armor { get; set; }
     public static int SpellPower { get; set; }
     public static int Level { get; set; }
+    private static string _playerName;
+
+    public static string PlayerName
+    {
+        get { return _playerName; }
+        set 
+        { 
+            if (_playerName == null)
+                Program.AskForPlayerName();
+        }
+    }
 
 
     public static void ChooseCharacterMage()
     {
-        BasicStatsMage();
-
+        Hero mage = new Hero();
+        Health = 100;
+        Strength = 0;
+        SpellPower = 10;
+        Armor = 10;
+        Level = 1;
 
     }
     public static void ChooseCharacterWarrior()
     {
-        BasicStatsWarrior();
-    }
-
-
-
-    static void BasicStatsMage()
-    {
-        Health = 100;
-        SpellPower = 10;
-        Armor = 10;
-        Level = 1;
-    }
-    static void BasicStatsWarrior()
-    {
+        Hero warrior = new Hero();
         Health = 125;
         Strength = 10;
+        SpellPower = 0;
         Armor = 12;
         Level = 1;
     }
+
+
+
+    
 
 }
