@@ -7,54 +7,37 @@ using System.Threading.Tasks;
 namespace DragonslayerUppgiftLudvig;
 internal class Dragon
 {
-    static int _health { get; set; }
-    static int _strength { get; set; }
-    static int _spellPower { get; set; }
-    static int _level { get; set; }
-    static int _armor { get; set; }
-
-
-
-
-    static void DragonCombatAttacks()
+    public string Name { get; set; }
+    static int Health { get; set; }
+    static int Strength { get; set; }
+    static int SpellPower { get; set; }
+    static int Level { get; set; }
+    static int Armor { get; set; }
+    public Dragon(string name, int health, int strength, int spellPower, int lvl, int armor)
     {
-        while (_health > 0)
-        {
-
-        }
-
-
+        Name = name;
+        Health = health;
+        Strength = strength;
+        SpellPower = spellPower;
+        Level = lvl;
+        Armor = armor;
     }
 
 
+    public static void RandomGen()
+    {
+        Random randomGen = new Random();
+        int printGenNr = randomGen.Next(1, 3);
 
-    static void FireDragon()
-    {
-        Dragon FireDragon = new Dragon();
-        _health = 150;
-        _strength = 10;
-        _spellPower = 10;
-        _level = 1;
-        _armor = 10;
+        Console.WriteLine(printGenNr);
     }
-    static void VoidDragon()
-    {
-        Dragon VoidDragon = new Dragon();
-        _health = 150;
-        _strength = 10;
-        _spellPower = 10;
-        _level = 1;
-        _armor = 10;
-    }
-    static void Frostdragon()
-    {
-        Dragon FrostDragon = new Dragon();
-        _health = 150;
-        _strength = 10;
-        _spellPower = 10;
-        _level = 1;
-        _armor = 10;
-    }
+
+    Dragon FireDragon = new Dragon("FireDragon", 100, 10, 10, 1, 10);
+
+    Dragon VoidDragon = new Dragon("VoidDragon", 100, 10, 10, 1, 10);
+
+    Dragon FrostDragon = new Dragon("FrostDragon", 100, 10, 10, 1, 10);
+
 
 
 

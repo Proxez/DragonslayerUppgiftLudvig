@@ -10,8 +10,9 @@ internal class Program
     public static bool InputMage;
     static void Main(string[] args)
     {
-        MenuToTheGame();
-
+        //MenuToTheGame();
+        
+        
 
 
 
@@ -84,7 +85,6 @@ internal class Program
             Hero.ChooseCharacterMage();
             InputMage = true;
         }
-
         else if (inputChar == "warrior")
         {
             Console.WriteLine("You choose a Warrior");
