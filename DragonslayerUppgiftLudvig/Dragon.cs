@@ -16,7 +16,15 @@ internal class Dragon
 
 
 
+    static void DragonCombatAttacks()
+    {
+        while (_health > 0)
+        {
 
+        }
+
+
+    }
 
 
 

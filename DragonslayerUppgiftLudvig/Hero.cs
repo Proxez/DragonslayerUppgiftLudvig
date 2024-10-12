@@ -19,11 +19,65 @@ internal class Hero
     public static string PlayerName
     {
         get { return _playerName; }
-        set 
-        { 
+        set
+        {
             if (_playerName == null)
-                Program.AskForPlayerName();
+                Console.WriteLine();
         }
+    }
+    static void UseAttacksMage()
+    {
+        Console.WriteLine("What spell do you want to use?");
+
+        var attacksMage = Console.ReadKey().KeyChar;
+        switch (attacksMage)
+        {
+            case 'f':
+                Console.Write("Casting Fireball!");
+                BackingText(3);
+                break;
+            case 'a':
+                Console.Write("Casting Arcane blast!");
+                BackingText(3);
+                break;
+            case 'h':
+                Console.Write("Trying to K/O your target!");
+                BackingText(3);
+                break;
+            case 'r':
+                Console.Write("You are trying to runaway from the fight!");
+                BackingText(3);
+                break;
+            default:
+                Console.Write("Invalid option!");
+                break;
+        }
+
+    }
+    static void UseAttacksWarrior()
+    {
+        Console.WriteLine("What attack do you want to use?");
+
+        var attacksMage = Console.ReadKey().KeyChar;
+        switch (attacksMage)
+        {
+            case 'f':
+                Console.Write("Using Heroic Strike!");
+                break;
+            case 'a':
+                Console.Write("Using Recklessness!");
+                break;
+            case 'h':
+                Console.Write("Using Odin's Fury");
+                break;
+            case 'r':
+                Console.Write("You are trying to runaway from the fight!");
+                break;
+            default:
+                Console.Write("Invalid option!");
+                break;
+        }
+
     }
 
 
@@ -35,6 +89,7 @@ internal class Hero
         SpellPower = 10;
         Armor = 10;
         Level = 1;
+        UseAttacksMage();
 
     }
     public static void ChooseCharacterWarrior()
@@ -47,8 +102,15 @@ internal class Hero
         Level = 1;
     }
 
+    static void BackingText(int repeatCount)
+    {
+        string dots = new string('.', repeatCount);
+        Console.Write(dots);
+        Thread.Sleep(750);
+        for (int i = 0; i < repeatCount; i++)
+            Console.Write("\b \b");
+    }
 
 
-    
 
 }

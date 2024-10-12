@@ -6,9 +6,11 @@ namespace DragonslayerUppgiftLudvig;
 
 internal class Program
 {
+    public static bool InputWarrior;
+    public static bool InputMage;
     static void Main(string[] args)
     {
-        IntroToTheGame();
+        MenuToTheGame();
 
 
 
@@ -22,6 +24,7 @@ internal class Program
         Console.WriteLine("c = create character, g = start game, s = savegame, q = quitgame ");
         do
         {
+            bool breakLoop = false;
             var menuChar = Console.ReadKey().KeyChar;
 
             switch (menuChar)
@@ -36,6 +39,8 @@ internal class Program
                     SaveGame.Saving();
                     break;
                 case 'q':   //quit game
+                    if (menuChar == 'q')
+                        breakLoop = true;
                     break;
                 default:
                     Console.WriteLine("This option is not available!");
@@ -61,7 +66,7 @@ internal class Program
     private static void IntroToTheGame()
     {
 
-        MenuToTheGame();
+
 
     }
 
@@ -72,16 +77,20 @@ internal class Program
         Console.WriteLine("What type of hero do you want to play?");
         Console.WriteLine("Mage or Warrior");
         string inputChar = Console.ReadLine()!.ToLower();
+        
         if (inputChar == "mage")
         {
             Console.WriteLine("You choose a Mage!");
             Hero.ChooseCharacterMage();
-
+            InputMage = true;
         }
+
         else if (inputChar == "warrior")
         {
             Console.WriteLine("You choose a Warrior");
             Hero.ChooseCharacterWarrior();
+            InputWarrior = true;
         }
     }
 }
+
