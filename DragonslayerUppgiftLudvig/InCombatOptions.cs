@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 namespace DragonslayerUppgiftLudvig;
 internal class InCombatOptions
 {
+    static bool runFromCombat = false;
 
 
 
     static void CombatMenu()
     {
-        while (true)
+        do
         {
             Random random = new Random();
             var combatMenuOption = Console.ReadKey().KeyChar;
@@ -21,15 +22,19 @@ internal class InCombatOptions
             switch (combatMenuOption)
             {
                 case 'a': // attack (ifsats med som kollar om du är mage/warrior, olika attacker)
-                    if (Program.InputMage == true)
-                        Hero.ChooseCharacterMage();
-                    else if (Program.InputWarrior == true)
-                        Hero.ChooseCharacterWarrior();
+                          //if (Program.InputMage == true)
+                          //Hero.ChooseCharacterMage();
+                          //else if (Program.InputWarrior == true)
+                          //Hero.ChooseCharacterWarrior();
                     break;
                 case 'r': // run
                     Console.WriteLine(random.Next(0, 10));
                     if (random.Next(0, 10) < 9)
+                    {
                         Console.WriteLine("You are running from the dragon!");
+                        runFromCombat = true;
+                    }
+
                     else
                         Console.WriteLine("You didnt run away, try again or fight!");
                     break;
@@ -42,13 +47,13 @@ internal class InCombatOptions
             }
 
 
-        }
+        } while (runFromCombat == true || Dragon.Health == 0);
     }
     static void DragonCombatAttack()
     {
-        do
-        {
-            Dragon.FireDragon();
+        //do
+        //{
+        //Dragon.FireDragon();
 
 
 
@@ -57,7 +62,7 @@ internal class InCombatOptions
 
 
 
-        } while (Dragon._health > 0);
+        //} while (Dragon._health > 0);
 
 
     }

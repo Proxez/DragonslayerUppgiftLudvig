@@ -8,7 +8,7 @@ namespace DragonslayerUppgiftLudvig;
 internal class Dragon
 {
     public string Name { get; set; }
-    static int Health { get; set; }
+    public static int Health { get; set; }
     static int Strength { get; set; }
     static int SpellPower { get; set; }
     static int Level { get; set; }
@@ -38,7 +38,13 @@ internal class Dragon
 
     Dragon FrostDragon = new Dragon("FrostDragon", 100, 10, 10, 1, 10);
 
+    public void AttackEnemy(Dragon enemy)
+    {
+        //int damage = FireBreath - Hero.Health;
 
+
+
+    }
 
 
 

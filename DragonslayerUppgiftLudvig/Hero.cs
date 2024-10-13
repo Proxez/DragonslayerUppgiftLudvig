@@ -1,32 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DragonslayerUppgiftLudvig;
 internal class Hero
 {
-
-    //static string _playerName { get; set; }    
     public static int Health { get; set; }
     public static int Strength { get; set; }
     public static int Armor { get; set; }
     public static int SpellPower { get; set; }
     public static int Level { get; set; }
-    private static string _playerName;
-    
+    private static string PlayerName;
+    Hero mage = new Hero(PlayerName, 100, 10, 10, 10, 1);
+    Hero warrior = new Hero(PlayerName, 125, 10, 10, 12, 1);
 
-
-    public static string PlayerName
+    public Hero(string playerName, int health, int strength, int armor, int spellPower, int level)
     {
-        get { return _playerName; }
-        set
-        {
-            if (_playerName == null)
-                Console.WriteLine();
-        }
+        PlayerName = playerName;
+        Health = health;
+        Strength = strength;
+        Armor = armor;
+        SpellPower = spellPower;
+        Level = level;
     }
+
+
     public static void UseAttacksMage()
     {
         Console.WriteLine("What spell do you want to use?");
@@ -38,10 +39,9 @@ internal class Hero
         int randomGenRun = random.Next(1, 5);
         bool runFromTarget = false;
 
-
         var attacksMage = Console.ReadKey().KeyChar;
-        //while (runFromTarget == true)//combatFightDragonHealth == 0 
-        //{
+        do
+        {
             switch (attacksMage)
             {
                 case 'f':
@@ -68,8 +68,9 @@ internal class Hero
                     Console.WriteLine("Invalid option!");
                     break;
             }
-        //}
+        } while (runFromTarget == true);//combatFightDragonHealth == 0 
     }
+
     static void UseAttacksWarrior()
     {
         Console.WriteLine("What attack do you want to use?");
@@ -96,28 +97,6 @@ internal class Hero
 
     }
 
-
-    public static void ChooseCharacterMage()
-    {
-        Hero mage = new Hero();
-        Health = 100;
-        Strength = 0;
-        SpellPower = 10;
-        Armor = 10;
-        Level = 1;
-
-
-    }
-    public static void ChooseCharacterWarrior()
-    {
-        Hero warrior = new Hero();
-        Health = 125;
-        Strength = 10;
-        SpellPower = 0;
-        Armor = 12;
-        Level = 1;
-    }
-
     static void BackingText(int repeatCount)
     {
         string dots = new string('.', repeatCount);
@@ -126,7 +105,4 @@ internal class Hero
         for (int i = 0; i < repeatCount; i++)
             Console.Write("\b \b");
     }
-
-
-
 }
