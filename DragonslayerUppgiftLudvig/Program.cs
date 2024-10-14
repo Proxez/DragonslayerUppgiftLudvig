@@ -8,11 +8,14 @@ internal class Program
 {
     public static bool InputWarrior;
     public static bool InputMage;
+    static string chooseWarrior = "Warrior";
+    static string chooseMage = "Mage";
     static void Main(string[] args)
     {
-        //MenuToTheGame();
-        
-        
+        MenuToTheGame();
+
+
+
 
 
 
@@ -22,10 +25,11 @@ internal class Program
 
     private static void MenuToTheGame()
     {
-        Console.WriteLine("c = create character, g = start game, s = savegame, q = quitgame ");
+        bool breakLoop = false;
+
         do
         {
-            bool breakLoop = false;
+            Console.WriteLine("c = New Character, g = StartGame, s = SaveGame, q = QuitGame ");
             var menuChar = Console.ReadKey().KeyChar;
 
             switch (menuChar)
@@ -46,19 +50,17 @@ internal class Program
                 default:
                     Console.WriteLine("This option is not available!");
                     break;
-
-
             }
         }
-        while (true);
+        while (breakLoop == true);
     }
 
     private static void StartTheGame()
     {
-        Console.WriteLine($"Welcome {Hero.PlayerName} the to the game!");//"{mage / warrior}"
-        Console.WriteLine();
-
-
+        if (InputWarrior == true) 
+            Console.WriteLine($"Welcome {Hero.PlayerName} the {chooseWarrior} to the game!");//"{mage / warrior}"
+        else if (InputMage == true)
+            Console.WriteLine($"Welcome {Hero.PlayerName} the {chooseMage} to the game!");
 
 
 
@@ -78,17 +80,17 @@ internal class Program
         Console.WriteLine("What type of hero do you want to play?");
         Console.WriteLine("Mage or Warrior");
         string inputChar = Console.ReadLine()!.ToLower();
-        
+
         if (inputChar == "mage")
         {
             Console.WriteLine("You choose a Mage!");
-            Hero.ChooseCharacterMage();
+            Hero mage = new Hero(Hero.PlayerName, 100, 10, 10, 10, 1);
             InputMage = true;
         }
         else if (inputChar == "warrior")
         {
             Console.WriteLine("You choose a Warrior");
-            Hero.ChooseCharacterWarrior();
+            Hero warrior = new Hero(Hero.PlayerName, 100, 10, 10, 10, 1);
             InputWarrior = true;
         }
     }
