@@ -14,8 +14,9 @@ internal class Hero
     public static int SpellPower { get; set; }
     public static int Level { get; set; }
     public static string? PlayerName;
-    public static int HeroHP { get; set; }
     public static int Health { get; set; }
+    //public static Hero? PlayerHero { get; private set; }
+    //public static Hero.HeroType ChosenHeroType { get; private set; }
 
 
     public Hero(string playerName, int maxHealth, int strength, int armor, int spellPower, int level)
@@ -28,13 +29,33 @@ internal class Hero
         Level = level;
     }
 
-    static void CombatHeroAttacks()
+    public static int Attack(HeroType heroType)
     {
-        
-
-
+        int damage = heroType == HeroType.Mage ? SpellPower * 2 : Strength * 2;
+        Console.WriteLine(heroType == HeroType.Mage
+            ? $"{PlayerName} casts a powerful spell for {damage} damage!"
+            : $"{PlayerName} strikes with their weapon for {damage} damage!");
+        return damage;
+    }
+    public static void HealToFullHealth()
+    {
+        Health = MaxHealth;
+        Console.WriteLine($"{PlayerName} heals to full health ({Health}/{MaxHealth})!");
     }
 
-
-
+    public static void TakeDamage(int damage)
+    {
+        int reducedDamage = Math.Max(0, damage - Armor); // Armor reduces damage
+        Health = Math.Max(0, Health - reducedDamage);
+        Console.WriteLine($"{PlayerName} takes {reducedDamage} damage! Health is now {Health}/{MaxHealth}.");
+    }
+    public static bool IsAlive()
+    {
+        return Health > 0;
+    }
+    public enum HeroType
+    {
+        Mage,
+        Warrior
+    }
 }

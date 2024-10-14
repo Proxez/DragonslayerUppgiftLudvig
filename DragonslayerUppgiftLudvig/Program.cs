@@ -2,10 +2,14 @@
 
 
 
+using static DragonslayerUppgiftLudvig.Hero;
+
 namespace DragonslayerUppgiftLudvig;
 
 internal class Program
 {
+    public static Hero? PlayerHero { get; set; }
+    public static Hero.HeroType ChosenHeroType { get; set; }
     public static bool InputWarrior;
     public static bool InputMage;
     static string chooseWarrior = "Warrior";
@@ -13,86 +17,151 @@ internal class Program
     static void Main(string[] args)
     {
         MenuToTheGame();
-
-
-
-
-
-
-
-
     }
 
     private static void MenuToTheGame()
     {
-        bool breakLoop = false;
+        bool exitGame = false;
 
-        do
+        while (!exitGame)
         {
             Console.WriteLine("c = New Character, g = StartGame, s = SaveGame, q = QuitGame ");
-            var menuChar = Console.ReadKey().KeyChar;
+            var menuOption = Console.ReadKey().KeyChar;
+            Console.WriteLine();
 
-            switch (menuChar)
+            switch (menuOption)
             {
                 case 'c':   // create Character
                     AskForPlayerName();
                     break;
                 case 'h':   // start game
-                    StartTheGame();
+                    StartTheGame();                    
                     break;
                 case 's':   //save game
                     SaveGame.Saving();
                     break;
                 case 'q':   //quit game
-                    if (menuChar == 'q')
-                        breakLoop = true;
+                    exitGame = true;
                     break;
                 default:
                     Console.WriteLine("This option is not available!");
                     break;
             }
         }
-        while (breakLoop == true);
     }
+    private static void Battle()
+    {
+        Console.WriteLine($"A wild {Dragon.Name} appears!");
 
+        while (Dragon.IsAlive() && IsAlive())
+        {
+            Console.WriteLine("\nWhat do you want to do? (a = attack, h = heal, r = run)");
+            char action = Console.ReadKey().KeyChar;
+            Console.WriteLine();
+
+            switch (action)
+            {
+                case 'a':
+                    int damage = Attack(ChosenHeroType);
+                    Dragon.TakeDamage(damage);
+                    if (Dragon.IsAlive())
+                    {
+                        string dragonAttack = Dragon.PerformRandomAttack();
+                        int dragonDamage = Dragon.GetDamageFromAttack(dragonAttack);
+                        TakeDamage(dragonDamage);
+                    }
+                    break;
+                case 'h':
+                    HealToFullHealth();
+                    break;
+                case 'r':
+                    Console.WriteLine($"{PlayerName} ran away from the fight!");
+                    return; // Exit combat
+                default:
+                    Console.WriteLine("Invalid option! Please choose again.");
+                    break;
+            }
+
+            if (!IsAlive())
+            {
+                Console.WriteLine($"{PlayerName} has been slain by {Dragon.Name}!");
+                return;
+            }
+            else if (!Dragon.IsAlive())
+            {
+                Console.WriteLine($"{PlayerName} has defeated {Dragon.Name}!");
+            }
+        }
+    }
     private static void StartTheGame()
     {
-        if (InputWarrior == true) 
-            Console.WriteLine($"Welcome {Hero.PlayerName} the {chooseWarrior} to the game!");//"{mage / warrior}"
-        else if (InputMage == true)
-            Console.WriteLine($"Welcome {Hero.PlayerName} the {chooseMage} to the game!");
+        if (PlayerHero == null)
+        {
+            Console.WriteLine("No character created! Please create a character first.");
+            return;
+        }
 
+        Dragon fireDragon = new Dragon("FireDragon", 150, 10, 15, 1,10, new List<string> { "Fireball", "FireBreath", "Swipe" });
+        Battle();
 
-
+        InCombatOptions combatOptions = new InCombatOptions(PlayerHero, ChosenHeroType, fireDragon);
+        InCombatOptions.CombatMenu();
     }
-
-    private static void IntroToTheGame()
+    private static void ChooseHeroType(string playerName)
     {
+        Console.WriteLine("What type of hero do you want to play? (Mage or Warrior)");
 
+        while (true)
+        {
+            string inputChar = Console.ReadLine()!.ToLower();
 
-
+            if (inputChar == "mage")
+            {
+                Console.WriteLine("You chose a Mage!");
+                ChosenHeroType = HeroType.Mage;
+                PlayerHero = new Hero(playerName, 100, 5, 5, 10, 1);
+                break;
+            }
+            else if (inputChar == "warrior")
+            {
+                Console.WriteLine("You chose a Warrior!");
+                ChosenHeroType = HeroType.Warrior;
+                PlayerHero = new Hero(playerName, 120, 10, 10, 2, 1);
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice! Please type 'Mage' or 'Warrior'.");
+            }
+        }
     }
+
+
 
     public static void AskForPlayerName()
     {
-        Console.WriteLine("Choose a playername: ");
-        Hero.PlayerName = Console.ReadLine()!;
-        Console.WriteLine("What type of hero do you want to play?");
-        Console.WriteLine("Mage or Warrior");
-        string inputChar = Console.ReadLine()!.ToLower();
+        Console.WriteLine("Choose a player name: ");
+        string playerName = Console.ReadLine()!;
 
-        if (inputChar == "mage")
-        {
-            Console.WriteLine("You choose a Mage!");
-            Hero mage = new Hero(Hero.PlayerName, 100, 10, 10, 10, 1);
-            InputMage = true;
-        }
-        else if (inputChar == "warrior")
-        {
-            Console.WriteLine("You choose a Warrior");
-            Hero warrior = new Hero(Hero.PlayerName, 100, 10, 10, 10, 1);
-            InputWarrior = true;
-        }
+        ChooseHeroType(playerName);
+        //Console.WriteLine("Choose a playername: ");
+        //Hero.PlayerName = Console.ReadLine()!;
+        //Console.WriteLine("What type of hero do you want to play?");
+        //Console.WriteLine("Mage or Warrior");
+        //string inputChar = Console.ReadLine()!.ToLower();
+
+        //if (inputChar == "mage")
+        //{
+        //    Console.WriteLine("You choose a Mage!");
+        //    Hero mage = new Hero(Hero.PlayerName, 100, 10, 10, 10, 1);
+        //    InputMage = true;
+        //}
+        //else if (inputChar == "warrior")
+        //{
+        //    Console.WriteLine("You choose a Warrior");
+        //    Hero warrior = new Hero(Hero.PlayerName, 100, 10, 10, 10, 1);
+        //    InputWarrior = true;
+        //}
     }
 }
 

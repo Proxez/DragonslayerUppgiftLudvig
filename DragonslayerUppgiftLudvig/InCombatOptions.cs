@@ -1,166 +1,220 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DragonslayerUppgiftLudvig.Hero;
 
 namespace DragonslayerUppgiftLudvig;
 internal class InCombatOptions
 {
-    //static bool runFromCombat = false;
+    private Hero _playerHero;
+    private HeroType _heroType;
+    private Dragon _dragon;
 
-    static void CombatMenu()
+    public InCombatOptions(Hero playerHero, HeroType heroType, Dragon dragon)
     {
-        do
+        _playerHero = playerHero;
+        _heroType = heroType;
+        _dragon = dragon;
+    }
+
+    public static void CombatMenu()
+    {
+        Console.WriteLine("What do you want to do? (a = attack, h = heal, r = run)");
+        bool isFighting = true;
+
+        while (isFighting)
         {
-            Random random = new Random();
             var combatMenuOption = Console.ReadKey().KeyChar;
-            Console.WriteLine("a = attack, r = run");
+            Console.WriteLine();
 
             switch (combatMenuOption)
             {
-                case 'a': // attack (ifsats med som kollar om du är mage/warrior, olika attacker)
-                    AttackTarget();
+                case 'a':
+                    PlayerAttack();
                     break;
-                case 'b':
-                    //Bossfight
+                case 'h':
+                    HealPlayer();
                     break;
-                case 'h': // heal
-                    HealToFullHealth();
+                case 'r':
+                    if (TryRunningAway())
+                    {
+                        Console.WriteLine($"{Hero.PlayerName} successfully ran away!");
+                        return; // Exit combat
+                    }
+                    else
+                    {
+                        Console.WriteLine("You failed to run away, the fight continues!");
+                    }
                     break;
                 default:
+                    Console.WriteLine("Invalid option! Please choose again.");
                     break;
             }
-        } while (RunningAway() == true || Dragon.Health == 0);
+
+            if (Dragon.IsAlive())
+            {
+                DragonAttack();
+            }
+
+            if (!Hero.IsAlive())
+            {
+                Console.WriteLine($"{Hero.PlayerName} has been slain by {Dragon.Name}!");
+                return;
+            }
+            else if (!Dragon.IsAlive())
+            {
+                Console.WriteLine($"{Hero.PlayerName} has defeated {Dragon.Name}!");
+            }
+        }
+        //do
+        //{
+        //    Random random = new Random();
+        //    var combatMenuOption = Console.ReadKey().KeyChar;
+        //    Console.WriteLine("a = attack, r = run");
+
+        //    switch (combatMenuOption)
+        //    {
+        //        case 'a': // attack (ifsats med som kollar om du är mage/warrior, olika attacker)
+        //            AttackTarget();
+        //            break;
+        //        case 'b':
+        //            //Bossfight
+        //            break;
+        //        case 'h': // heal
+        //            HealToFullHealth();
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //} while (RunningAway() == true || Dragon.Health == 0);
+    } 
+    private static void PlayerAttack()
+    {
+        int playerDamage = Hero.Attack(HeroType.Mage);
+        Dragon.TakeDamage(playerDamage);
     }
 
     private static void AttackTarget()
     {
-        if (Program.InputMage == true)
-            UseAttacksMage();
-        else if (Program.InputWarrior == true)
-            UseAttacksWarrior();
+        if (Program.InputMage)
+        {
+            Console.WriteLine("\nYou are a Mage. Choose your attack:");
+            HandleAttacks("f=Fireball", "a=Arcane Blast", "h=Melee", CombatMageAttacks);
+        }
+        else if (Program.InputWarrior)
+        {
+            Console.WriteLine("\nYou are a Warrior. Choose your attack:");
+            HandleAttacks("h=Heroic Strike", "b=Bladestorm", "o=Odin's Fury", CombatWarriorAttacks);
+        }
     }
 
-    public static void UseAttacksMage()
+    private static void HandleAttacks(string attack1, string attack2, string attack3, Action<char> attackAction)
+    {
+        Console.WriteLine($"{attack1}, {attack2}, {attack3}, r=Run");
+        var attackOption = Console.ReadKey().KeyChar;
+
+        switch (attackOption)
+        {
+            case 'f':
+            case 'a':
+            case 'h':
+            case 'b':
+            case 'o':
+                attackAction(attackOption);
+                break;
+            case 'r':
+                TryRunningAway();
+                break;
+            default:
+                Console.WriteLine("Invalid option!");
+                break;
+        }
+    }
+
+    public static void CombatMageAttacks(char attack) //Attack for mage
     {
         Console.WriteLine("What spell do you want to use?");
         Console.WriteLine("f=fireball, a=arcaneblast, h=melee, r=run");
-        
+
 
         var attacksMage = Console.ReadKey().KeyChar;
-        do
+        switch (attack)
         {
-            switch (attacksMage)
-            {
-                case 'f':                    
-                    Console.WriteLine("Casting Fireball!");
-                    CombatMageFireball();
-                    break;
-                case 'a':
-                    Console.WriteLine("Casting Arcane blast!");
-                    CombatMageArcaneBlast();
-                    break;
-                case 'h':
-                    Console.WriteLine("Trying to K/O your target!");
-                    CombatMageMelee();
-                    break;
-                case 'r':
-                    RunningAway();
-                    break;
-                default:
-                    Console.WriteLine("Invalid option!");
-                    break;
-            }
-        } while (RunningAway() == true || Dragon.Health == 0 || Hero.Health == 0);
+            case 'f':
+                Console.WriteLine("\nCasting Fireball!");
+                Dragon.TakeDamage(10);
+                break;
+            case 'a':
+                Console.WriteLine("\nCasting Arcane Blast!");
+                Dragon.TakeDamage(12);
+                break;
+            case 'h':
+                Console.WriteLine("\nMelee attack!");
+                Dragon.TakeDamage(5);
+                break;
+        }
+
     }
-    static void UseAttacksWarrior()
+    public static void CombatWarriorAttacks(char attack) //Attack for warrior
     {
         Console.WriteLine("What attack do you want to use?");
         Console.WriteLine("h= Heroic strike, b=Bladestorm, o = Odin's Fury, r = Run");
-        
-        do
+
+        switch (attack)
         {
-            var attacksWarrior = Console.ReadKey().KeyChar;
-            switch (attacksWarrior)
-            {
-                case 'h':
-                    Console.Write("Using Heroic Strike!");
-                    CombatWarriorHeroicStrike();
-                    break;
-                case 'b':
-                    Console.Write("Using Bladestrom!");
-                    CombatWarriorBladestorm();
-                    break;
-                case 'o':
-                    Console.Write("Using Odin's Fury");
-                    CombatWarriorOdinsFury();
-                    break;
-                case 'r':
-                    RunningAway();
-                    break;
-                default:
-                    Console.Write("Invalid option!");
-                    break;
-            }
-        } while (RunningAway() == true || Dragon.Health == 0 || Hero.Health == 0);
+            case 'h':
+                Console.WriteLine("\nUsing Heroic Strike!");
+                Dragon.TakeDamage(12);
+                break;
+            case 'b':
+                Console.WriteLine("\nUsing Bladestorm!");
+                Dragon.TakeDamage(15);
+                break;
+            case 'o':
+                Console.WriteLine("\nUsing Odin's Fury!");
+                Dragon.TakeDamage(20);
+                break;
+        }
     }
     static void HealToFullHealth()
     {
-        if (Hero.HeroHP < Hero.MaxHealth)
-            Hero.HeroHP = Hero.MaxHealth;
+        if (Hero.Health < Hero.MaxHealth)
+        {
+            Console.WriteLine("You healed to full health!");
+            Hero.Health = Hero.MaxHealth;
+        }
+        else
+        {
+            Console.WriteLine("Your health is already full!");
+        }
     }
-    static bool RunningAway()
+    private static void HealPlayer()
+    {
+        HealToFullHealth();
+    }
+    static bool TryRunningAway()
     {
         Random random = new Random();
-        int randomGenRun = random.Next(1, 5);
-        bool runFromTarget = false;
+        int randomGenRun = random.Next(1, 6);
 
         if (randomGenRun <= 4)
         {
             Console.WriteLine("You ran away from the fight!");
-            runFromTarget = true;
+            return true;
         }
         else
+        {
             Console.WriteLine("You failed, try again or fight!");
-
-        return runFromTarget;
+            return false;
+        }
     }
-
-    static int CombatMageFireball()
+    private static void DragonAttack()
     {
-        int combatFireball = 10;
-        
-        return Dragon.Health - combatFireball;
-    }
-    static int CombatMageArcaneBlast()
-    {
-        int combatArcaneBlast = 10;
-
-        return Dragon.Health - combatArcaneBlast;
-    }
-    static int CombatMageMelee()
-    {
-        int combatMelee = 5;
-
-        return Dragon.Health - combatMelee;
-    }
-    static int CombatWarriorHeroicStrike()
-    {
-        int combatHeroicStrike = 12;
-
-        return Dragon.Health - combatHeroicStrike;
-    }
-    static int CombatWarriorBladestorm()
-    {
-        int combatBladestorm = 12;
-
-        return Dragon.Health - combatBladestorm;
-    }
-    static int CombatWarriorOdinsFury()
-    {
-        int combatOdinsFury = 15;
-
-        return Dragon.Health - combatOdinsFury;
+        string dragonAttack = Dragon.PerformRandomAttack();
+        int dragonDamage = Dragon.GetDamageFromAttack(dragonAttack);
+        Hero.TakeDamage(dragonDamage);
     }
 }

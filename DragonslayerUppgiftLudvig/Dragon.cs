@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 namespace DragonslayerUppgiftLudvig;
 internal class Dragon
 {
-    public string Name { get; set; }
+    public static string? Name { get; set; }
     public static int Health { get; set; }
     static int Strength { get; set; }
     static int SpellPower { get; set; }
     static int Level { get; set; }
     static int Armor { get; set; }
-    public Dragon(string name, int health, int strength, int spellPower, int lvl, int armor)
+    public static List<string> AttackList { get; private set; }
+    public Dragon(string name, int health, int strength, int spellPower, int lvl, int armor, List<string> attackList)
     {
         Name = name;
         Health = health;
@@ -22,14 +23,30 @@ internal class Dragon
         SpellPower = spellPower;
         Level = lvl;
         Armor = armor;
-
+        AttackList = attackList;
     }
+    public static int GetDamageFromAttack(string attack)
+    {
+        return attack switch
+        {
+            "Fireball" or "Frostball" or "Voidbolt" => SpellPower * 2,
+            "Swipe" => Strength * 1,
+            "FireBreath" or "Ray of Frost" or "Void Torrent" => SpellPower * 3,
+            _ => 0
+        };
+    }
+    public static string PerformRandomAttack()
+    {
+        Random random = new Random();
+        string chosenAttack = AttackList[random.Next(AttackList.Count)];
+        Console.WriteLine($"{Name} uses {chosenAttack}!");
+        return chosenAttack;
+    }
+    //Dragon FireDragon = new Dragon("FireDragon", 100, 10, 10, 1, 10);
 
-    Dragon FireDragon = new Dragon("FireDragon", 100, 10, 10, 1, 10);
+    //Dragon VoidDragon = new Dragon("VoidDragon", 100, 10, 10, 1, 10);
 
-    Dragon VoidDragon = new Dragon("VoidDragon", 100, 10, 10, 1, 10);
-
-    Dragon FrostDragon = new Dragon("FrostDragon", 100, 10, 10, 1, 10);
+    //Dragon FrostDragon = new Dragon("FrostDragon", 100, 10, 10, 1, 10);
 
     static string FireDragonAttacks()
     {
@@ -103,10 +120,16 @@ internal class Dragon
 
 
     }
+    
+    public static void TakeDamage(int damage)
+    {
+        Health = Math.Max(0, Health - Math.Max(0, damage - Armor));
+        Console.WriteLine($"{Name} takes {damage} damage! It has {Health} health remaining.");
+    }
 
-
-
-
-
+    public static bool IsAlive()
+    {
+        return Health > 0;
+    }
 
 }
