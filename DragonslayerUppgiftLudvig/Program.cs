@@ -8,12 +8,10 @@ namespace DragonslayerUppgiftLudvig;
 
 internal class Program
 {
-    public static Hero? PlayerHero { get; set; }
-    public static Hero.HeroType ChosenHeroType { get; set; }
+    public static Hero PlayerHero { get; set; }
+    public static HeroType ChosenHeroType { get; set; }
     public static bool InputWarrior;
-    public static bool InputMage;
-    static string chooseWarrior = "Warrior";
-    static string chooseMage = "Mage";
+    public static bool InputMage;    
     static void Main(string[] args)
     {
         MenuToTheGame();
@@ -25,7 +23,7 @@ internal class Program
 
         while (!exitGame)
         {
-            Console.WriteLine("c = New Character, g = StartGame, s = SaveGame, q = QuitGame ");
+            Console.WriteLine("c = New Character, h = StartGame, s = SaveGame, q = QuitGame ");
             var menuOption = Console.ReadKey().KeyChar;
             Console.WriteLine();
 
@@ -35,12 +33,12 @@ internal class Program
                     AskForPlayerName();
                     break;
                 case 'h':   // start game
-                    StartTheGame();                    
+                    StartTheGame();
                     break;
                 case 's':   //save game
                     SaveGame.Saving();
                     break;
-                case 'q':   //quit game
+                case 'q':   //quit game,
                     exitGame = true;
                     break;
                 default:
@@ -53,7 +51,7 @@ internal class Program
     {
         Console.WriteLine($"A wild {Dragon.Name} appears!");
 
-        while (Dragon.IsAlive() && IsAlive())
+        while (Dragon.IsAlive() && Hero.IsAlive())
         {
             Console.WriteLine("\nWhat do you want to do? (a = attack, h = heal, r = run)");
             char action = Console.ReadKey().KeyChar;
@@ -101,12 +99,13 @@ internal class Program
             return;
         }
 
-        Dragon fireDragon = new Dragon("FireDragon", 150, 10, 15, 1,10, new List<string> { "Fireball", "FireBreath", "Swipe" });
+        Dragon fireDragon = new Dragon("FireDragon", 150, 1, 1, 1, 10, new List<string> { "Fireball", "FireBreath", "Swipe" });
         Battle();
 
         InCombatOptions combatOptions = new InCombatOptions(PlayerHero, ChosenHeroType, fireDragon);
         InCombatOptions.CombatMenu();
     }
+
     private static void ChooseHeroType(string playerName)
     {
         Console.WriteLine("What type of hero do you want to play? (Mage or Warrior)");
@@ -136,32 +135,12 @@ internal class Program
         }
     }
 
-
-
     public static void AskForPlayerName()
     {
         Console.WriteLine("Choose a player name: ");
         string playerName = Console.ReadLine()!;
 
-        ChooseHeroType(playerName);
-        //Console.WriteLine("Choose a playername: ");
-        //Hero.PlayerName = Console.ReadLine()!;
-        //Console.WriteLine("What type of hero do you want to play?");
-        //Console.WriteLine("Mage or Warrior");
-        //string inputChar = Console.ReadLine()!.ToLower();
-
-        //if (inputChar == "mage")
-        //{
-        //    Console.WriteLine("You choose a Mage!");
-        //    Hero mage = new Hero(Hero.PlayerName, 100, 10, 10, 10, 1);
-        //    InputMage = true;
-        //}
-        //else if (inputChar == "warrior")
-        //{
-        //    Console.WriteLine("You choose a Warrior");
-        //    Hero warrior = new Hero(Hero.PlayerName, 100, 10, 10, 10, 1);
-        //    InputWarrior = true;
-        //}
+        ChooseHeroType(playerName);       
     }
 }
 

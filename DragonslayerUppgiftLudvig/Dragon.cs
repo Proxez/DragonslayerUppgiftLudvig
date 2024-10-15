@@ -129,7 +129,7 @@ internal class Dragon
 
     public static bool IsAlive()
     {
-        return Health > 0;
+        return Health >= 0;
     }
 
 }

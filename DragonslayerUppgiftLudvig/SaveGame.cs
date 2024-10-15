@@ -30,6 +30,6 @@ internal class SaveGame
 
     public static void Saving()
     {
-
+        Console.WriteLine("In progress...");
     }
 }

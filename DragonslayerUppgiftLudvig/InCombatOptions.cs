@@ -139,7 +139,6 @@ internal class InCombatOptions
         Console.WriteLine("What spell do you want to use?");
         Console.WriteLine("f=fireball, a=arcaneblast, h=melee, r=run");
 
-
         var attacksMage = Console.ReadKey().KeyChar;
         switch (attack)
         {
