@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace DragonslayerUppgiftLudvig;
 internal class SaveGame
 {
+    //custom class
     //static void WriteJson()
     //{
     //    Book book = new Book("It", 400);

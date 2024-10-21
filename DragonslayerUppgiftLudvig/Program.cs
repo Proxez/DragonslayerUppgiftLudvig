@@ -47,11 +47,11 @@ internal class Program
             }
         }
     }
-    private static void Battle()
+    public static void Battle()
     {
         Console.WriteLine($"A wild {Dragon.Name} appears!");
 
-        while (Dragon.IsAlive() && Hero.IsAlive())
+        while (Dragon.IsAlive() && IsAlive())
         {
             Console.WriteLine("\nWhat do you want to do? (a = attack, h = heal, r = run)");
             char action = Console.ReadKey().KeyChar;
@@ -73,6 +73,7 @@ internal class Program
                     HealToFullHealth();
                     break;
                 case 'r':
+                    InCombatOptions.TryingToRunAway();
                     Console.WriteLine($"{PlayerName} ran away from the fight!");
                     return; // Exit combat
                 default:
@@ -100,7 +101,7 @@ internal class Program
         }
 
         Dragon fireDragon = new Dragon("FireDragon", 150, 1, 1, 1, 10, new List<string> { "Fireball", "FireBreath", "Swipe" });
-        Battle();
+        
 
         InCombatOptions combatOptions = new InCombatOptions(PlayerHero, ChosenHeroType, fireDragon);
         InCombatOptions.CombatMenu();

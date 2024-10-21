@@ -33,13 +33,13 @@ internal class InCombatOptions
             switch (combatMenuOption)
             {
                 case 'a':
-                    PlayerAttack();
+                    StartCombat();
                     break;
                 case 'h':
-                    HealPlayer();
+                    HealToFullHealth();
                     break;
                 case 'r':
-                    if (TryRunningAway())
+                    if (TryingToRunAway())
                     {
                         Console.WriteLine($"{Hero.PlayerName} successfully ran away!");
                         return; // Exit combat
@@ -90,7 +90,15 @@ internal class InCombatOptions
         //            break;
         //    }
         //} while (RunningAway() == true || Dragon.Health == 0);
-    } 
+    }
+
+    private static void StartCombat()
+    {
+        Console.WriteLine("You choose to start the fight!");
+        Program.Battle();
+        
+    }
+
     private static void PlayerAttack()
     {
         int playerDamage = Hero.Attack(HeroType.Mage);
@@ -126,7 +134,7 @@ internal class InCombatOptions
                 attackAction(attackOption);
                 break;
             case 'r':
-                TryRunningAway();
+                TryingToRunAway();
                 break;
             default:
                 Console.WriteLine("Invalid option!");
@@ -190,26 +198,22 @@ internal class InCombatOptions
             Console.WriteLine("Your health is already full!");
         }
     }
-    private static void HealPlayer()
-    {
-        HealToFullHealth();
-    }
-    static bool TryRunningAway()
+
+    public static bool TryingToRunAway()
     {
         Random random = new Random();
-        int randomGenRun = random.Next(1, 6);
+        int randomGenRun = random.Next(0, 5);
 
         if (randomGenRun <= 4)
         {
-            Console.WriteLine("You ran away from the fight!");
             return true;
         }
         else
-        {
-            Console.WriteLine("You failed, try again or fight!");
+        {            
             return false;
         }
     }
+
     private static void DragonAttack()
     {
         string dragonAttack = Dragon.PerformRandomAttack();

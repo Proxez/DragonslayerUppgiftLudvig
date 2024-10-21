@@ -19,10 +19,11 @@ internal class Hero
     //public static Hero.HeroType ChosenHeroType { get; private set; }
 
 
-    public Hero(string playerName, int maxHealth, int strength, int armor, int spellPower, int level)
+    public Hero(string playerName, int health, int strength, int armor, int spellPower, int level)
     {
         PlayerName = playerName;
-        MaxHealth = maxHealth;
+        MaxHealth = health;
+        Health = health;
         Strength = strength;
         Armor = armor;
         SpellPower = spellPower;
