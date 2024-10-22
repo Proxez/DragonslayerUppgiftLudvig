@@ -14,7 +14,9 @@ internal class Dragon
     static int SpellPower { get; set; }
     static int Level { get; set; }
     static int Armor { get; set; }
+    static int MaxHealth { get; set; }
     public static List<string> AttackList { get; private set; }
+    
     public Dragon(string name, int health, int strength, int spellPower, int lvl, int armor, List<string> attackList)
     {
         Name = name;
@@ -24,108 +26,76 @@ internal class Dragon
         Level = lvl;
         Armor = armor;
         AttackList = attackList;
+        MaxHealth = health;
     }
-    public static int GetDamageFromAttack(string attack)
-    {
-        return attack switch
-        {
-            "Fireball" or "Frostball" or "Voidbolt" => SpellPower * 2,
-            "Swipe" => Strength * 1,
-            "FireBreath" or "Ray of Frost" or "Void Torrent" => SpellPower * 3,
-            _ => 0
-        };
-    }
-    public static string PerformRandomAttack()
+
+    public static string RandomDragon()
     {
         Random random = new Random();
-        string chosenAttack = AttackList[random.Next(AttackList.Count)];
-        Console.WriteLine($"{Name} uses {chosenAttack}!");
-        return chosenAttack;
+        random.Next(0, 3);
+        List<string> DragonList = new List<string>();
+        DragonList.Add("Firedragon");
+        DragonList.Add("Frostdragon");
+        DragonList.Add("Voiddragon");
+        
+
+        string dragonType = DragonList[random.Next(0, DragonList.Count)];
+        return dragonType;
     }
-    //Dragon FireDragon = new Dragon("FireDragon", 100, 10, 10, 1, 10);
-
-    //Dragon VoidDragon = new Dragon("VoidDragon", 100, 10, 10, 1, 10);
-
-    //Dragon FrostDragon = new Dragon("FrostDragon", 100, 10, 10, 1, 10);
-
-    static string FireDragonAttacks()
+    
+    public static string FireDragonAttacks(string chosenAttack)
     {
         List<string> FireAttacklist = new List<string>();
         FireAttacklist.Add("Fireball");
         FireAttacklist.Add("FireBreath");
         FireAttacklist.Add("Swipe");
+        //Dragon FireDragon = new Dragon("FireDragon", 200, 10, 10, 1, 0, FireAttacklist);
 
         Random random = new Random();
         random.Next(0, 3);
-        if (random.Next(0, 3) == 1)
-        {
-            Console.WriteLine("Using Fireball");
-            return FireAttacklist[0];
-        }
-        else if (random.Next(0, 3) == 2)
-        {
-            Console.WriteLine("Using FireBreath");
-            return FireAttacklist[1];
-        }
-        else
-            return FireAttacklist[2];
-        }
-    
-    static string FrostDragonAttacks()
+        chosenAttack = FireAttacklist[random.Next(AttackList.Count)];
+        Console.WriteLine($"{Name} uses {chosenAttack}!");
+        return chosenAttack;
+    }
+
+    public static string FrostDragonAttacks(string chosenAttack)
     {
         List<string> FrostAttacklist = new List<string>();
         FrostAttacklist.Add("Frostball");
         FrostAttacklist.Add("Ray of Frost");
         FrostAttacklist.Add("Swipe");
-
+        //Dragon FrostDragon = new Dragon("FrostDragon", 200, 10, 10, 1, 0, FrostAttacklist);
+        
         Random random = new Random();
         random.Next(0, 3);
-        if (random.Next(0, 3) == 1)
-        {
-            Console.WriteLine("Using Frostball");
-            return FrostAttacklist[0];
-        }
-        else if (random.Next(0, 3) == 2)
-        {
-            Console.WriteLine("Using Ray of Frost");
-            return FrostAttacklist[1];
-        }
-        else
-            return FrostAttacklist[2];
-
-
-
+        chosenAttack = FrostAttacklist[random.Next(AttackList.Count)];
+        Console.WriteLine($"{Name} uses {chosenAttack}!");
+        return chosenAttack;
     }
-    static string VoidDragonAttacks()
+    public static string VoidDragonAttacks(string chosenAttack)
     {
         List<string> VoidAttacklist = new List<string>();
         VoidAttacklist.Add("Voidbolt");
         VoidAttacklist.Add("Void Torrent");
         VoidAttacklist.Add("Swipe");
+        //Dragon VoidDragon = new Dragon("VoidDragon", 200, 10, 10, 1, 0, VoidAttacklist);
 
         Random random = new Random();
         random.Next(0, 3);
-        if (random.Next(0, 3) == 1)
-        {
-            Console.WriteLine("Using Frostball");
-            return VoidAttacklist[0];
-        }
-        else if (random.Next(0, 3) == 2)
-        {
-            Console.WriteLine("Using Ray of Frost");
-            return VoidAttacklist[1];
-        }
-        else
-            return VoidAttacklist[2];
-
-
+        chosenAttack = VoidAttacklist[random.Next(AttackList.Count)];
+        Console.WriteLine($"{Name} uses {chosenAttack}!");
+        return chosenAttack;
     }
-    
+
     public static void TakeDamage(int damage)
     {
-        Health = Math.Max(0, Health - Math.Max(0, damage - Armor));
-        Console.WriteLine($"{Name} takes {damage} damage! It has {Health} health remaining.");
+        //int reducedDamage = Math.Max(0, damage - Armor); // Armor reduces damage 
+        Health = Math.Max(0,Health - damage);
+        Console.WriteLine($"{Name} takes {damage} damage! Health is now {Health}/{MaxHealth}.");
+
+        //return damage;
     }
+    
 
     public static bool IsAlive()
     {
